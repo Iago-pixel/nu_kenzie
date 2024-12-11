@@ -1,26 +1,47 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <TheHeader />
+  <main class="main">
+    <div>
+      <FinanceForm />
+      <TotalBox />
+    </div>
+    <FinanceList />
+  </main>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import FinanceForm from './components/FinanceForm/FinanceForm.vue';
+import FinanceList from './components/FinanceList/FinanceList.vue';
+import TheHeader from './components/TheHeader.vue';
+import TotalBox from './components/TotalBox.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    TheHeader,
+    FinanceForm,
+    TotalBox,
+    FinanceList
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family: "Nunito", sans-serif;
+}
+.main {
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .main {
+    flex-direction: row;
+    align-items: start;
+    gap: 50px;
+  }
 }
 </style>
