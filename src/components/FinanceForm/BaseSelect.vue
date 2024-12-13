@@ -1,7 +1,7 @@
 <template>
-    <select class='select' :id='id' @change='onChange' v-model='type'>
-        <option value='entry'>Entrada</option>
-        <option value='exit'>Saída</option>
+    <select class="select" :id="id" @change="onChange" v-model="type">
+        <option value="entry">Entrada</option>
+        <option value="exit">Saída</option>
     </select>
 </template>
 

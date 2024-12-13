@@ -1,5 +1,5 @@
 <template>
-    <button class='button' @click='submit'>Inserir Valor</button>
+    <button class="button" @click="submit">Inserir Valor</button>
 </template>
 
 <script>
