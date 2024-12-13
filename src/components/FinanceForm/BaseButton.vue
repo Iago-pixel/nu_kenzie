@@ -1,6 +1,17 @@
 <template>
-    <button class="button">Inserir Valor</button>
+    <button class='button' @click='submit'>Inserir Valor</button>
 </template>
+
+<script>
+    export default {
+        methods: {
+            submit() {
+                this.$emit('submit')
+            }
+        }
+    }
+</script>
+
 
 <style scoped>
     .button {

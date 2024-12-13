@@ -4,22 +4,22 @@
             <template v-slot:title>
                 Descrição
             </template>
-            <BaseInput placeholder="Digite aqui sua descrição" id="descripition"/>
+            <BaseInput placeholder="Digite aqui sua descrição" id="descripition" @value="updateDescription"/>
         </BaseInputBox>
         <p class="example">Ex: Compra de roupas</p>
         <BaseInputBox forHtml="value">
             <template v-slot:title>
                 Valor (R$)
             </template>
-            <BaseInput placeholder="1" id="value"/>
+            <BaseInput placeholder="1" id="value" type="number" @value="updateValue"/>
         </BaseInputBox>
         <BaseInputBox forHtml="type">
             <template v-slot:title>
                 Tipo de valor
             </template>
-            <BaseSelect id="type"/>
+            <BaseSelect id="type" @on-change="updateType"/>
         </BaseInputBox>
-        <BaseButton />
+        <BaseButton @submit="submit"/>
     </section>
 </template>
 
@@ -30,11 +30,36 @@
     import BaseSelect from './BaseSelect.vue';
 
     export default {
+        data() {
+            return {
+                data: {
+                    id: 0,
+                    description: '',
+                    value: 0,
+                    type: 'entry'
+                }
+            }
+        },
         components: {
             BaseInputBox,
             BaseInput,
             BaseSelect,
             BaseButton
+        },
+        methods: {
+            updateDescription(descripition) {
+                this.data.description = descripition
+            },
+            updateValue(value) {
+                this.data.value = Number(value)
+            },
+            updateType(type) {
+                this.data.type = type
+            },
+            submit() {
+                this.data.id += 1
+                this.$store.commit('storeTransactions', this.data)
+            }
         }
     }
 </script>

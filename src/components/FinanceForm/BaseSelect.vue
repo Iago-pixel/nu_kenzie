@@ -1,13 +1,23 @@
 <template>
-    <select class="select" :id="id">
-        <option value="entry">Entrada</option>
-        <option value="exit">Saída</option>
+    <select class='select' :id='id' @change='onChange' v-model='type'>
+        <option value='entry'>Entrada</option>
+        <option value='exit'>Saída</option>
     </select>
 </template>
 
 <script>
     export default {
-        props: ['id']
+        data() {
+            return {
+                type: 'entry'
+            }
+        },
+        props: ['id'],
+        methods: {
+            onChange() {
+                this.$emit('on-change', this.type)
+            }
+        }
     }
 </script>
 

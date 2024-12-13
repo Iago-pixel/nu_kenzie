@@ -2,7 +2,7 @@
     <section class="total-box">
         <div class="flex-box">
             <h2 class="title">Valor total</h2>
-            <p class="value">R$ 8184,00</p>
+            <p class="value">R$ {{ this.$store.getters.total }},00</p>
         </div>
         <p class="text">O valor se refere ao saldo</p>
     </section>

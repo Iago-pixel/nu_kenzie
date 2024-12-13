@@ -1,10 +1,20 @@
 <template>
-    <input class="input" :placeholder="placeholder" :id="id" />
+    <input class="input" :placeholder="placeholder" :id="id" :type="type" @keyup="updateValue" v-model="value"/>
 </template>
 
 <script>
     export default {
-        props: ['placeholder', 'id']
+        data() {
+            return {
+                value: ''
+            }
+        },
+        props: ['placeholder', 'id', 'type'],
+        methods: {
+            updateValue() {
+                this.$emit('value', this.value)
+            }
+        }
     }
 </script>
 
