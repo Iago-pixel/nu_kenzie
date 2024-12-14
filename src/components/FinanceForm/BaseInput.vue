@@ -1,5 +1,5 @@
 <template>
-    <input class="input" :placeholder="placeholder" :id="id" :type="type" @keyup="updateValue" v-model="value"/>
+    <input class="input" :placeholder="placeholder" :id="id" :type="type" @keyup="updateValue" v-model="value" @input="evt=>value=evt.target.value" />
 </template>
 
 <script>
